@@ -1,4 +1,3 @@
 Rails.application.routes.draw do
-  get 'top' => 'homes#top'
-
+  root 'homes#top'
 end
