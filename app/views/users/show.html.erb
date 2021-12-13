@@ -1,2 +1,28 @@
-<%= @user.name %>
-<%= @user.email %>
+<div class="container mypage">
+  <div class="row">
+    <div class="col-md-3">
+      <h1>マイページ</h1>
+    </div>
+  </div>
+  <hr class='divider'>
+  <h3 class="mt-3">プロフィール</h3>
+  <div class="row">
+    <div class="col-md-3">
+      <p>名前:<%= @user.name %></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <p>メールアドレス:<%= @user.email %></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <p>レベル:<%= @user.level %></p>
+    </div>
+    <div class="col-md-1">
+      <%= link_to '', edit_user_path(@user), class:"far fa-edit" %>
+    </div>
+  </div>
+  <h3 class="mt-3">予約日</h3>
+</div>
