@@ -1,1 +1,47 @@
-<h1>header</h1>
+<header class='bg-header bg-info'>
+  <nav class="navbar navbar-expand-md navbar-dark bg-info d-flex justify-content-between">
+    <div class='container'>
+      <a class="navbar-brand" href="/" >
+        <span>Tennis court reservation</span>
+      </a>
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ml-auto">
+          <% if signed_in? %>
+            <li>コートの予約</li>
+            <li><%= link_to 'マイページ', users_my_page_path, class:'nav-link text-body mr-1' %></li>
+            <li><%= link_to 'ログアウト', logout_path, method: :delete, class:'nav-link text-body' %></li>
+          <% else %>
+            <li><%= link_to '新規会員登録', signup_path, class:'nav-link text-body mr-1' %></li>
+            <li><%= link_to 'ログイン', login_path, class:'nav-link text-body' %></li>
+          <% end %>
+        </ul>
+      </div>
+      <button class="btn btn-link d-sm-none" type="button" data-toggle="modal" data-target="#menuModal" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </nav>
+  <div class="modal fade fullscreen" id="menuModal"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">×</span>
+         </button>
+        </div>
+        <div class="modal-body">
+          <ul style="list-style-type:none;">
+          <% if signed_in? %>
+            <li>コートの予約</li>
+            <li><%= link_to 'マイページ', users_my_page_path, class:'nav-link text-body mr-1' %></li>
+            <li><%= link_to 'ログアウト', logout_path, method: :delete, class:'nav-link text-body' %></li>
+          <% else %>
+            <li><%= link_to '新規会員登録', signup_path, class:'nav-link text-body mr-1' %></li>
+            <li><%= link_to 'ログイン', login_path, class:'nav-link text-body' %></li>
+          <% end %>
+          </ul>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.fullscreen -->
+</header>
