@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_13_052021) do
+ActiveRecord::Schema.define(version: 2021_12_14_041822) do
+
+  create_table "calendars", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "calendar_day"
+    t.time "calendar_time"
+  end
 
   create_table "reservations", force: :cascade do |t|
     t.string "court_name"
