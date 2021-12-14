@@ -12,5 +12,7 @@ Rails.application.routes.draw do
   resources :users, only: [:create, :show, :edit, :update] do
     resources :reservations, only: [:create, :index, :show, :edit, :update, :destroy]
   end
+  
+  resources :calendars, only: [:index]
 
 end
