@@ -35,7 +35,7 @@
             <tr class="days">
               <th><%= hour %>:00</th>
               <% @calendar_data.each do |date| %>
-              <% if (@reservations.where(reservation_day: date.to_s).exists? && @reservations.where(reservation_time: hour.to_s).exists?) || date < @today %>
+              <% if (@reservations.where(reservation_day: date.to_s, reservation_time: hour.to_s).exists?) || date < @today %>
                 <td>×</td>
               <% else %>
                 <td>

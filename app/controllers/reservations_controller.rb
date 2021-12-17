@@ -12,16 +12,7 @@ class ReservationsController < ApplicationController
   
   def confirm
     @reservation = Reservation.new(reservation_params)
-    # byebug
-    # if @reservation.invalid? #入力項目に空のものがあれば入力画面に遷移
-    #   render :index
-    # end
   end
-  
-  # def new
-  #   @reservation = Reservation.find_or_initialize_by(id: params[:id])
-  #   @reservation.assign_attributes(reservation_params)
-  # end
 
   def create
     @reservation = Reservation.new(reservation_params)
@@ -46,7 +37,7 @@ class ReservationsController < ApplicationController
   def destroy
     @reservation = Reservation.find(params[:id])
     @reservation.destroy
-    redirect_to new_reservations_path
+    redirect_to new_reservation_path
     
   end
 

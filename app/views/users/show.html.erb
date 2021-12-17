@@ -28,7 +28,7 @@
   <% @user.reservations.each do |reservation| %>
   <div class="row">
     <div class="col-md-3">
-      <p><%= link_to reservation.reservation_day, reservation_path(reservation) %> <%= reservation.reservation_time %></p>
+      <p><%= link_to reservation.reservation_day, reservation_path(reservation) %> <%= reservation.reservation_time %>:00～<%= reservation.reservation_time.to_i + 1%>:00</p>
     </div>
   </div>
   <% end %>
