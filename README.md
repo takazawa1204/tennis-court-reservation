@@ -1,24 +1,30 @@
-# README
+# テニスコート予約管理サイト
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+テニスコートの予約管理を目的としたアプリケーションです。
 
-Things you may want to cover:
 
-* Ruby version
+主な機能は下記の通りです。
+1. 当月のテニスコートの予約
+> - 1時間単位で予約可能
+> - ユーザーの予約日の確認
+2. ユーザー登録機能
 
-* System dependencies
+## ターゲットユーザ
+テニスコートのオーナー、テニスコート利用者
 
-* Configuration
+## 技術的なポイント
+- 予約日、予約時間のデータの受け渡し
 
-* Database creation
+## 設計書
+- [ER図](https://app.diagrams.net/#G1h90JuiYZ1IBubgDHHA9RI5qIO9vANVQI)
+- [ワイヤーフレーム](https://drive.google.com/file/d/1ZvMhTbWxI0SXfocJOyhHk1XK0DcD5ra0/view?usp=sharing)
+- [テーブル定義書](https://docs.google.com/spreadsheets/d/1n76tIzVjvkdvtMeiI9lN1c3F5isrGByEf4Ol-idictk/edit?usp=sharing)
+- [アプリケーション詳細設計書](https://docs.google.com/spreadsheets/d/1b__86NxmLmTHGmOJybZdF1o-CzlY4caonQc3AXvtQRU/edit?usp=sharing)
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
