@@ -8,9 +8,3 @@ ja:
       - 木
       - 金
       - 土
-
-  enums:
-    reservation:
-      reservation_status:
-        availability: "空き有"
-    　　reserved: "空き無"

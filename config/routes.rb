@@ -11,12 +11,10 @@ Rails.application.routes.draw do
 
   resources :users, only: [:create, :show, :edit, :update]
 
-  resources :reservations, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
+  resources :reservations, only: [:new, :create, :show, :destroy] do
     collection do
       post :confirm
     end
   end
-
-  resources :calendars, only: [:index]
 
 end

@@ -9,7 +9,7 @@ class ReservationsController < ApplicationController
     @calendar_data = from_date.upto(to_date)
     @reservation = Reservation.new
   end
-  
+
   def confirm
     @reservation = Reservation.new(reservation_params)
   end
@@ -38,13 +38,13 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.find(params[:id])
     @reservation.destroy
     redirect_to new_reservation_path
-    
+
   end
 
   private
 
   def reservation_params
-    params.require(:reservation).permit(:count, :reservation_time, :reservation_status, :reservation_day)
+    params.require(:reservation).permit(:reservation_time, :reservation_day)
   end
 
 end

@@ -1,8 +1,6 @@
 class User < ApplicationRecord
   has_secure_password validations: true
   after_initialize :set_default_values
-  # Use this if you wanna set default values only when creating a new record.
-  #after_initialize :set_default_values, if: :new_record?
 
   validates :name, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true

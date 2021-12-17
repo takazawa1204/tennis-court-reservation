@@ -14,7 +14,7 @@
             <td><%= @reservation.reservation_day %></td>
             <td><%= @reservation.reservation_time %>：00～<%= @reservation.reservation_time.to_i + 1 %>：00</td>
             <% if @reservation.user == @current_user %>
-              <td><%= link_to 'Destroy', reservation_path(@reservation), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_reservation_#{@reservation.id}"%></td>
+              <td><%= link_to '削除', reservation_path(@reservation), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_reservation_#{@reservation.id}"%></td>
             <% end %>
           </tr>
         </tbody>
