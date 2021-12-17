@@ -1,0 +1,55 @@
+<div class="event-calendar">
+  <p><%= @today.strftime("< %Y / %m >") %></p>
+  <table>
+    <tbody>
+      <tr class="week">
+        <th><%= @today.strftime("%Y年") %></th>
+        <% 5.times do %>
+          <% t('date.abbr_day_names').each do |day_name| %>
+            <% if day_name == "日" %>
+              <td id="week_view" style="background: rgb(204, 0, 0); color: rgb(255, 255, 255);">
+                <%= day_name %>
+              </td>
+            <% elsif day_name == "土" %>
+              <td id="week_view" style="background: rgb(0, 51, 204); color: rgb(255, 255, 255);">
+                <%= day_name %>
+              </td>
+            <% else %>
+              <td id="week_view">
+                <%= day_name %>
+              </td>
+            <% end %>
+          <% end %>
+        <% end %>
+      </tr>
+      <% hours = [*8..22] %>
+      <% hours.each do |hour| %>
+        <% if hour == 8 %>
+          <tr class="days">
+            <th><%= @today.strftime("%m月") %></th>
+            <% @calendar_data.each do |date| %>
+            <td><%= date.day %></td>
+            <% end %>
+          </tr>
+        <% else %>
+            <tr class="days">
+              <th><%= hour %>:00</th>
+              <% @calendar_data.each do |date| %>
+              <% if (@reservations.where(reservation_day: date.to_s).exists? && @reservations.where(reservation_time: hour.to_s).exists?) || date < @today %>
+                <td>×</td>
+              <% else %>
+                <td>
+                　<%= form_with model: @reservation, url: confirm_reservations_path(@reservation), local: true do |f| %>
+                      <%= f.hidden_field :reservation_day, :value => date %>
+                      <%= f.hidden_field :reservation_time, :value => hour %>
+                      <%= f.submit "〇" %>
+                  <% end %>
+                </td>
+              <% end %>
+            <% end %>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

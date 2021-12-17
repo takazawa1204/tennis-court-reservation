@@ -1,0 +1,22 @@
+<div class='col-md-8 offset-md-1'>
+      <h2>予約日</h2>
+      <table class='table table-hover table-inverse'>
+        <thead>
+          <tr>
+            <th>予約者名</th>
+            <th>予約日</th>
+            <th>予約時間</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><%= link_to @reservation.user.name, user_path(@reservation.user) %></td>
+            <td><%= @reservation.reservation_day %></td>
+            <td><%= @reservation.reservation_time %>：00～<%= @reservation.reservation_time.to_i %> + <%= @reservation.count.to_i %>：00</td>
+            <% if @reservation.user == @current_user %>
+              <td><%= link_to 'Destroy', reservation_path(@reservation), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_reservation_#{@reservation.id}"%></td>
+            <% end %>
+          </tr>
+        </tbody>
+      </table>
+    </div>
