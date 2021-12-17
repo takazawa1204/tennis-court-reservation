@@ -7,7 +7,7 @@
       <div class="collapse navbar-collapse">
         <ul class="navbar-nav ml-auto">
           <% if signed_in? %>
-            <li>コートの予約</li>
+            <li><%= link_to 'コートの予約', new_reservation_path, class:'nav-link text-body mr-1' %></li>
             <li><%= link_to 'マイページ', users_my_page_path, class:'nav-link text-body mr-1' %></li>
             <li><%= link_to 'ログアウト', logout_path, method: :delete, class:'nav-link text-body' %></li>
           <% else %>

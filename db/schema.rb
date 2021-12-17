@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_14_041822) do
+ActiveRecord::Schema.define(version: 2021_12_14_082448) do
 
   create_table "calendars", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -20,9 +20,10 @@ ActiveRecord::Schema.define(version: 2021_12_14_041822) do
   end
 
   create_table "reservations", force: :cascade do |t|
-    t.string "court_name"
+    t.integer "count"
     t.integer "user_id"
-    t.datetime "reservation_time"
+    t.integer "reservation_time"
+    t.date "reservation_day"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

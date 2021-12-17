@@ -9,10 +9,14 @@ Rails.application.routes.draw do
 
   get '/users/my_page', to: 'users#show'
 
-  resources :users, only: [:create, :show, :edit, :update] do
-    resources :reservations, only: [:create, :index, :show, :edit, :update, :destroy]
+  resources :users, only: [:create, :show, :edit, :update]
+
+  resources :reservations, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
+    collection do
+      post :confirm
+    end
   end
-  
+
   resources :calendars, only: [:index]
 
 end

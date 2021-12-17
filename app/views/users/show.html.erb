@@ -21,8 +21,15 @@
       <p>レベル:<%= @user.level %></p>
     </div>
     <div class="col-md-1">
-      <%= link_to '', edit_user_path(@user), class:"far fa-edit" %>
+      <%= link_to '編集する', edit_user_path(@user), class:"" %>
     </div>
   </div>
   <h3 class="mt-3">予約日</h3>
+  <% @user.reservations.each do |reservation| %>
+  <div class="row">
+    <div class="col-md-3">
+      <p><%= link_to reservation.reservation_day, reservation_path(reservation) %> <%= reservation.reservation_time %></p>
+    </div>
+  </div>
+  <% end %>
 </div>
